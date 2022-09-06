@@ -1,0 +1,28 @@
+<load target="scss/style.scss" />
+<load target="js/app.js" type="body" />
+
+<div id="app-upload-from-mobile-qr">
+	<div id="app-upload-from-mobile-qr-header">
+		<h1>
+			{$lang->upload_from_mobile_tit_upload_from_mobile}
+		</h1>
+		<p>
+			{$lang->upload_from_mobile_txt_scan_from_mobile}
+		</p>
+	</div>
+	<div id="app-upload-from-mobile-qr-body">
+		<div id="app-upload-from-mobile-qr-body-image">
+			<img src="{$qrcode_url}" alt="QR Code" />
+			<!--@if($config->expires_in != 0)-->
+				<p data-expires-in="{$config->expires_in}" data-expires-in-text="{$lang->upload_from_mobile_txt_expires_in}">
+					{sprintf($lang->upload_from_mobile_txt_expires_in, $config->expires_in)}
+				</p>
+			<!--@endif-->
+			
+			<div id="app-upload-from-mobile-qr-body-expired">
+				<svg width="48px" height="48px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#f44b33"><path d="M20.043 21H3.957c-1.538 0-2.5-1.664-1.734-2.997l8.043-13.988c.77-1.337 2.699-1.337 3.468 0l8.043 13.988C22.543 19.336 21.58 21 20.043 21zM12 9v4" stroke="#f44b33" stroke-width="1.5" stroke-linecap="round"></path><path d="M12 17.01l.01-.011" stroke="#f44b33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+				<span>{$lang->upload_from_mobile_txt_expired}</span>
+			</div>
+		</div>
+	</div>
+</div>

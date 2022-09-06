@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module version="0.2">
+	<title xml:lang="ko">모바일에서 업로드</title>
+	<description xml:lang="ko">PC 사용자가 모바일에서 파일을 업로드할 수 있도록 돕습니다.</description>
+	<version>0.0.1</version>
+	<date>2022-09-07</date>
+	<author email_address="rxapps@qroffle.com" link="https://github.com/rx-apps">
+		<name xml:lang="ko">rxApps</name>
+	</author>
+</module>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<actions>
+		<!-- (일반) 뷰 액션 -->
+		<action name="dispUpload_from_mobileQr" type="view" />
+		<action name="dispUpload_from_mobileSession" type="view" />
+		
+		<!-- (일반) 컨트롤러 액션 -->
+		<action name="procUpload_from_mobileInsertSession" type="controller" />
+		
+		<!-- (관리자) 뷰 액션 -->
+		<action name="dispUpload_from_mobileAdminIndex" type="view" admin_index="true" />
+		
+		<!-- (관리자) 컨트롤러 액션 -->
+		<action name="procUpload_from_mobileAdminIndex" type="controller" />
+	</actions>
+</module>

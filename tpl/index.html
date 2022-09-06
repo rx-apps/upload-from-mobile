@@ -1,0 +1,115 @@
+{@ // <!--suppress CheckEmptyScriptTag, HtmlUnknownTag, HtmlUnknownAttribute --> }
+<include target="components/header.html" />
+
+<section class="section">
+	<h2>
+		{$lang->upload_from_mobile_admin_tit_check_update}
+	</h2>
+	
+	<div class="x_form-horizontal">
+		{@ // <!-- 최신버전 여부 --> }
+		<div class="x_control-group">
+			<label class="x_control-label">
+				{$lang->upload_from_mobile_admin_lbl_is_updated}
+			</label>
+			<div class="x_controls margin-top">
+				<!--@if($is_github_updated)-->
+					<b class="x_text-success">
+						{sprintf($lang->upload_from_mobile_admin_txt_already_updated, $current_version)}
+					</b>
+				<!--@else-->
+					<b class="x_text-error">
+						{sprintf($lang->upload_from_mobile_admin_txt_need_update, $github_version)}
+					</b>
+				<!--@endif-->
+			</div>
+		</div>
+		
+		{@ // <!-- 깃헙 링크 --> }
+		<div class="x_control-group">
+			<label class="x_control-label">
+				{$lang->upload_from_mobile_admin_lbl_github_url}
+			</label>
+			<div class="x_controls margin-top">
+				<a href="{$github_url}" target="_blank">
+					{$github_url}
+				</a>
+				<p class="x_help-block">
+					{$lang->upload_from_mobile_admin_txt_github_url}
+				</p>
+			</div>
+		</div>
+		
+		{@ // <!-- 광고 --> }
+		<div class="x_control-group">
+			<label class="x_control-label">
+				{$lang->upload_from_mobile_admin_lbl_advertisement}
+			</label>
+			<div class="x_controls margin-top">
+				<a href="{$lang->upload_from_mobile_admin_txt_advertisement_url}" target="_blank">
+					{$lang->upload_from_mobile_admin_txt_advertisement_name}
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section">
+	<h2>
+		{$lang->upload_from_mobile_admin_tit_config}
+	</h2>
+	
+	<form method="POST" action="/" class="x_form-horizontal">
+		<input type="hidden" name="module" value="admin" />
+		<input type="hidden" name="act" value="procUpload_from_mobileAdminIndex" />
+		<input type="hidden" name="xe_validator_id" value="modules/upload_from_mobile" />
+		
+		<div class="x_control-group">
+			<label class="x_control-label">
+				{$lang->skin}
+			</label>
+			<div class="x_controls">
+				<select name="skin">
+					<!--@foreach($skin_list as $skin => $value)-->
+						<option value="{$skin}" selected|cond="$config->skin == $skin">{$value->title}</option>
+					<!--@endforeach-->
+				</select>
+			</div>
+		</div>
+		
+		<div class="x_control-group">
+			<label class="x_control-label">
+				{$lang->upload_from_mobile_admin_lbl_expires_in}
+			</label>
+			<div class="x_controls">
+				<input type="number" name="expires_in" value="{$config->expires_in ?: ''}" placeholder="{$lang->upload_from_mobile_admin_txt_expires_in_infinity}" />
+				<p class="x_help-block">
+					{$lang->upload_from_mobile_admin_txt_expires_in}
+				</p>
+ 			</div>
+		</div>
+		
+		<div class="x_control-group">
+			<label class="x_control-label">
+				{$lang->upload_from_mobile_admin_lbl_qr_generating_type}
+			</label>
+			<div class="x_controls">
+				<select name="qr_generating_type">
+					<option value="internal" selected|cond="$config->qr_generating_type == 'internal'">
+						{$lang->upload_from_mobile_admin_txt_qr_generating_type_internal}
+					</option>
+					<option value="google_api" selected|cond="$config->qr_generating_type == 'google_api'">
+						{$lang->upload_from_mobile_admin_txt_qr_generating_type_google_api}
+					</option>
+				</select>
+				<p class="x_help-block">
+					{$lang->upload_from_mobile_admin_txt_qr_generating_type}
+				</p>
+			</div>
+		</div>
+		
+		<div class="x_clearfix btnArea">
+			<input type="submit" class="x_btn x_btn-primary" value="{$lang->cmd_save}" />
+		</div>
+	</form>
+</section>

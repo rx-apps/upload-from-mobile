@@ -1,0 +1,11 @@
+<query id="insertSession" action="insert">
+	<tables>
+		<table name="upload_from_mobile_sessions" />
+	</tables>
+	<columns>
+		<column name="session_id" var="session_id" notnull="notnull" />
+		<column name="upload_target_srl" var="upload_target_srl" notnull="notnull" />
+		<column name="expires_at" var="expires_at" />
+		<column name="regdate" var="regdate" notnull="notnull" />
+	</columns>
+</query>

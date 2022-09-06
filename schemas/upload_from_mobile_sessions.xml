@@ -1,0 +1,6 @@
+<table name="upload_from_mobile_sessions">
+	<column name="session_id" type="varchar" size="255" notnull="notnull" primary_key="primary_key" />
+	<column name="upload_target_srl" type="number" filter="number" notnull="notnull" />
+	<column name="expires_at" type="date" />
+	<column name="regdate" type="date" notnull="notnull" />
+</table>
